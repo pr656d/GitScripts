@@ -8,6 +8,7 @@ reset=`tput sgr0`
 clear
 echo
 
+# Checking status of executed command. If unsuccessful then terminate.
 check_status () {
     if [[ $? -ne 0 ]];
     then
@@ -17,31 +18,13 @@ check_status () {
     fi
 }
 
+# Adds new remote connection.
 remote_add () {
-    directory=$( basename "$PWD" )
-    if ! ( $( git config remote.$directory.url > /dev/null ) );
-    then
-        echo
-        printf "$green>>> Choose remote: ssh/https? : $reset"
-        address=""
-        read opt
-        if [ "$opt" == "ssh" ];
-        then
-            echo
-            printf "$green>>> SSH Address: $reset"
-            read address
-        elif [ "$opt" == "https" ];
-        then
-            echo
-            printf "$green>>> HTTPS Address: $reset"
-            read address
-        else
-            echo
-            echo "$red>>> Choose ssh or https. $reset"
-        fi
-        git remote add origin $address
-        check_status
-    fi
+    echo
+    printf "$green>>> Enter remote address : $reset"
+    read address
+    git remote add origin $address
+    check_status
 }
 
 # Navigate to directory.
@@ -58,6 +41,7 @@ fi
 
 echo
 
+# Check if directory exist.
 if ! [ -d .git ];
 then
     echo "$red>>> This directory is not git repository. $reset"
@@ -106,12 +90,14 @@ ssh-add ~/.ssh/id_rsa_bb
 
 echo
 
+# Add files to commit
 git add .
 echo "$green>>> FILES ADDED $reset"
 check_status
 
 echo
 
+# commit to repository
 printf "$green>>> COMMIT MESSAGE : $reset"
 read message
 git commit -am "$message"
