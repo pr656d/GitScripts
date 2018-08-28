@@ -1,7 +1,8 @@
 # GitScripts
 Easily commit and push to GitHub, Bit Bucket and also both by single command.
 
-##How To Use
+
+## How To Use
 
 => Make sure you grant permission to execute.
 
