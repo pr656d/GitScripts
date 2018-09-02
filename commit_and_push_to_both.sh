@@ -60,8 +60,6 @@ then
     fi
 fi
 
-remote_add
-
 echo
 
 # Start SSH agent
