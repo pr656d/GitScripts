@@ -1,5 +1,5 @@
 # GitScripts
-Easily commit and push to GitHub, Bit Bucket and also both by single command.
+    Easily commit and push to GitHub, Bit Bucket and also both by single command.
 
 
 ## How To Use
@@ -12,3 +12,8 @@ Easily commit and push to GitHub, Bit Bucket and also both by single command.
     1. find "bash.bashrc" file at "C:\Program Files\Git\etc" in windows.
     2. Open it in your favourite editor.
     3. Add this lines at the end of the file "alias alias_name=\'path/to/your/script\'". Change accordingly.
+
+
+## Learned
+
+    - Bash scripting
